@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buổi 2: Dự báo Tuyến tính, Xu hướng và Động lượng</title>
+    <title>Tài liệu Tinh gọn</title>
     <style>
 
     :root { --primary: #f59e0b; --text: #451a03; }
@@ -40,6 +40,18 @@
       box-shadow: none !important;
     }
 
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 2rem 0;
+      background: #fff;
+      border: 3px solid #fef3c7;
+      border-radius: 25px;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th { background: #fffbeb; color: #92400e; padding: 1.25rem; }
+    td { padding: 1.25rem; border-bottom: 1px solid #fffbeb; text-align: center; }
+
     pre { background: #2d3748; color: #fff; padding: 25px; border-radius: 20px; }
     .toc { background: #fffbeb; border: 3px solid #f59e0b; padding: 2rem; border-radius: 25px; }
   
@@ -74,14 +86,18 @@
 <body class="tex2jax_process">
     <article class="tex2jax_process">
 <section class="tex2jax_ignore mathjax_ignore tex2jax_process" id="chuong-2-du-bao-tuyen-tinh-xu-huong-va-dong-luong">
-<h1 id="chuong-2-du-bao-tuyen-tinh-xu-huong-va-dong-luong-0">Buổi 2: Dự báo Tuyến tính, Xu hướng và Động lượng</h1>
+<h1 id="buoi-2-du-bao-tuyen-tinh-xu-huong-va-dong-luong-0">Buổi 2: Dự báo Tuyến tính, Xu hướng và Động lượng</h1>
 
     <nav class="toc">
         <div class="toc-title">Mục lục</div>
         <ul>
-            <li class="toc-level-1"><a href="#chuong-2-du-bao-tuyen-tinh-xu-huong-va-dong-luong-0">Buổi 2: Dự báo Tuyến tính, Xu hướng và Động lượng</a></li><li class="toc-level-2"><a href="#cach-su-dung-so-tay-nay-1">Cách sử dụng Sổ tay này</a></li><li class="toc-level-2"><a href="#du-bao-bang-hoi-quy-tuyen-tinh-lr--2">Dự báo bằng Hồi quy Tuyến tính (LR)</a></li><li class="toc-level-3"><a href="#cac-gia-dinh-gauss-markov-3">Các giả định Gauss Markov</a></li><li class="toc-level-3"><a href="#vi-du-1-hoi-quy-tuyen-tinh-don-bien-cho-gia-co-phi-4">Ví dụ 1: Hồi quy tuyến tính đơn biến cho giá cổ phiếu Netflix</a></li><li class="toc-level-3"><a href="#vi-du-2-du-bao-don-bien-su-dung-du-lieu-khi-hau-je-5">Ví dụ 2. Dự báo đơn biến sử dụng Dữ liệu Khí hậu Jena</a></li><li class="toc-level-3"><a href="#vi-du-3-hoi-quy-tuyen-tinh-da-bien-va-cac-ky-thuat-6">Ví dụ 3: Hồi quy tuyến tính đa biến và các kỹ thuật điều chuẩn (Regularization)</a></li><li class="toc-level-3"><a href="#dieu-chuan-l1-lasso-va-l2-ridge-cho-hoi-quy-tuyen--7">Điều chuẩn L1 (Lasso) và L2 (Ridge) cho hồi quy tuyến tính đa biến</a></li><li class="toc-level-3"><a href="#vi-du-4-hoi-quy-tuyen-tinh-da-bien-tren-du-lieu-kh-8">Ví dụ 4: Hồi quy tuyến tính đa biến trên Dữ liệu Khí hậu Jena</a></li><li class="toc-level-2"><a href="#du-bao-dong-luong-va-xu-huong-9">Dự báo Động lượng và Xu hướng</a></li><li class="toc-level-3"><a href="#duong-trung-binh-dong-moving-average-ma--10">Đường trung bình động (Moving Average - MA)</a></li><li class="toc-level-3"><a href="#vi-du-5-trich-xuat-xu-huong-trong-du-lieu-khi-hau--11">Ví dụ 5: Trích xuất xu hướng trong Dữ liệu Khí hậu bằng MA</a></li><li class="toc-level-3"><a href="#chien-luoc-dong-luong-momentum-strategies--12">Chiến lược Động lượng (Momentum Strategies)</a></li><li class="toc-level-3"><a href="#vi-du-6-chien-luoc-giao-dich-dong-luong-su-dung-ha-13">Ví dụ 6: Chiến lược giao dịch Động lượng sử dụng hai đường MA</a></li><li class="toc-level-3"><a href="#vi-du-7-chien-luoc-giao-dich-dong-luong-su-dung-ma-14">Ví dụ 7: Chiến lược giao dịch Động lượng sử dụng MACD</a></li>
+            <li class="toc-level-1"><a href="#buoi-2-du-bao-tuyen-tinh-xu-huong-va-dong-luong-0">Buổi 2: Dự báo Tuyến tính, Xu hướng và Động lượng</a></li><li class="toc-level-2"><a href="#cach-su-dung-so-tay-nay-1">Cách sử dụng Sổ tay này</a></li><li class="toc-level-2"><a href="#du-bao-bang-hoi-quy-tuyen-tinh-lr--2">Dự báo bằng Hồi quy Tuyến tính (LR)</a></li><li class="toc-level-3"><a href="#cac-gia-dinh-gauss-markov-3">Các giả định Gauss Markov</a></li><li class="toc-level-3"><a href="#vi-du-1-hoi-quy-tuyen-tinh-don-bien-cho-gia-co-phi-4">Ví dụ 1: Hồi quy tuyến tính đơn biến cho giá cổ phiếu Netflix</a></li><li class="toc-level-3"><a href="#vi-du-2-du-bao-don-bien-su-dung-du-lieu-khi-hau-je-5">Ví dụ 2. Dự báo đơn biến sử dụng Dữ liệu Khí hậu Jena</a></li><li class="toc-level-3"><a href="#vi-du-3-hoi-quy-tuyen-tinh-da-bien-va-cac-ky-thuat-6">Ví dụ 3: Hồi quy tuyến tính đa biến và các kỹ thuật điều chuẩn (Regularization)</a></li><li class="toc-level-3"><a href="#dieu-chuan-l1-lasso-va-l2-ridge-cho-hoi-quy-tuyen--7">Điều chuẩn L1 (Lasso) và L2 (Ridge) cho hồi quy tuyến tính đa biến</a></li><li class="toc-level-3"><a href="#vi-du-4-hoi-quy-tuyen-tinh-da-bien-tren-du-lieu-kh-8">Ví dụ 4: Hồi quy tuyến tính đa biến trên Dữ liệu Khí hậu Jena</a></li><li class="toc-level-2"><a href="#du-bao-dong-luong-va-xu-huong-9">Dự báo Động lượng và Xu hướng</a></li><li class="toc-level-3"><a href="#duong-trung-binh-dong-moving-average-ma--10">Đường trung bình động (Moving Average - MA)</a></li><li class="toc-level-3"><a href="#vi-du-5-trich-xuat-xu-huong-trong-du-lieu-khi-hau--11">Ví dụ 5: Trích xuất xu hướng trong Dữ liệu Khí hậu bằng MA</a></li><li class="toc-level-3"><a href="#chien-luoc-dong-luong-momentum-strategies--12">Chiến lược Động lượng (Momentum Strategies)</a></li><li class="toc-level-3"><a href="#vi-du-6-chien-luoc-giao-dich-dong-luong-su-dung-ha-13">Ví dụ 6: Chiến lược giao dịch Động lượng sử dụng hai đường MA</a></li><li class="toc-level-3"><a href="#vi-du-7-chien-luoc-giao-dich-dong-luong-su-dung-ma-14">Ví dụ 7: Chiến lược giao dịch Động lượng sử dụng MACD</a></li>
         </ul>
     </nav>
+
+    
+
+    
 <p>Biên soạn bởi: Marissa P. Liponhay and Maria Eloisa M. Ventura</p>
 <p>Trong buổi này, chúng tôi giới thiệu các công cụ cơ bản về dự báo, những công cụ sử dụng công thức đại số đơn giản. Ở buổi trước, chúng ta đã thảo luận về ARIMA, nơi các giá trị tương lai của một chuỗi thời gian được dự báo bằng cách sử dụng các giá trị quá khứ hoặc giá trị trễ của nó. Chúng ta đã thấy rằng ARIMA chỉ có thể được áp dụng sau khi đã loại bỏ xu hướng và tính thời vụ của dữ liệu. Tuy nhiên, chúng tôi lưu ý rằng đối với một số công cụ dự báo, xu hướng là yếu tố có liên quan và là một phần của công thức dự đoán. Trong phần này, việc dự báo sẽ được trình diễn trong khi tận dụng các mối quan hệ và xu hướng trong dữ liệu.</p>
 <p>Trong nửa đầu của sổ tay này, chúng tôi trình diễn việc dự báo bằng cách khớp dữ liệu chuỗi thời gian với hồi quy tuyến tính. Đối với nửa sau, chúng tôi chứng minh rằng bằng cách sử dụng các xu hướng của dữ liệu chuỗi thời gian như trung bình trượt, chúng ta có thể dự đoán hướng đi tương lai có thể có của xu hướng bằng cách sử dụng dự báo động lượng.</p>
@@ -769,7 +785,7 @@ The mean absolute error, MAE is:  6.973973107834884
         text-align: right;
     }
 </style>
-<table class="dataframe">
+<div class="table-container"><div class="table-container"><table class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -822,7 +838,7 @@ The mean absolute error, MAE is:  6.973973107834884
       <td>105</td>
     </tr>
   </tbody>
-</table>
+</table></div></div>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -846,7 +862,7 @@ The mean absolute error, MAE is:  6.973973107834884
         text-align: right;
     }
 </style>
-<table class="dataframe">
+<div class="table-container"><div class="table-container"><table class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -905,7 +921,7 @@ The mean absolute error, MAE is:  6.973973107834884
       <td>120.000000</td>
     </tr>
   </tbody>
-</table>
+</table></div></div>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -1097,7 +1113,7 @@ CO2=  0.007019810017740837 x1 +  0.007728894654883425 x2 +  80.73020505101513
         text-align: right;
     }
 </style>
-<table class="dataframe">
+<div class="table-container"><div class="table-container"><table class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -1210,7 +1226,7 @@ CO2=  0.007019810017740837 x1 +  0.007728894654883425 x2 +  80.73020505101513
       <td>203.9</td>
     </tr>
   </tbody>
-</table>
+</table></div></div>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -1235,7 +1251,7 @@ CO2=  0.007019810017740837 x1 +  0.007728894654883425 x2 +  80.73020505101513
         text-align: right;
     }
 </style>
-<table class="dataframe">
+<div class="table-container"><div class="table-container"><table class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -1393,7 +1409,7 @@ CO2=  0.007019810017740837 x1 +  0.007728894654883425 x2 +  80.73020505101513
       <td>360.000000</td>
     </tr>
   </tbody>
-</table>
+</table></div></div>
 </div></div></div>
 </div>
 <p>Để nhất quán với tất cả các mô hình dự báo khác, chúng ta sẽ thiết lập thủ công hơn 300.000 dữ liệu đầu tiên làm tập huấn luyện (training set), trong khi hơn 100.000 điểm dữ liệu cuối cùng sẽ được dùng làm tập kiểm tra (test set).</p>
@@ -1439,7 +1455,7 @@ CO2=  0.007019810017740837 x1 +  0.007728894654883425 x2 +  80.73020505101513
         text-align: right;
     }
 </style>
-<table class="dataframe">
+<div class="table-container"><div class="table-container"><table class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -1546,7 +1562,7 @@ CO2=  0.007019810017740837 x1 +  0.007728894654883425 x2 +  80.73020505101513
       <td>203.9</td>
     </tr>
   </tbody>
-</table>
+</table></div></div>
 </div></div></div>
 </div>
 <div class="cell docutils container">
